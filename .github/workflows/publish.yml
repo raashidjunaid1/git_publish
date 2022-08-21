@@ -21,7 +21,7 @@ jobs:
       - name: Install dependencies and build 🔧
         run: yarn && yarn prepare-release
       - name: Publish package on NPM 📦
-        run: git push --follow-tags origin main && npm npm publish --access public
+        run: git push --follow-tags origin main && npm publish --access public
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
