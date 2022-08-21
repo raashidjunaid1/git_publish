@@ -19,7 +19,9 @@ jobs:
           node-version: '14.x'
           registry-url: 'https://registry.npmjs.org'
       - name: Install dependencies and build 🔧
-        run: yarn && yarn prepare-release
+        run: |
+          git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+          yarn && yarn prepare-release
       - name: Publish package on NPM 📦
         run: git push --follow-tags origin main && npm publish --access public
         env:
